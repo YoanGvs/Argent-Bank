@@ -1,11 +1,12 @@
+import  { Link} from 'react-router-dom';
 
 export const Login = () => {
     return (
         <div>
-            <a className="main-nav-item">
+            <Link className="main-nav-item" to={`./signin`}>
                 <i className="fa fa-user-circle" ></i>
                 Sign In 
-            </a>
+            </Link>
         </div>
         
     )
