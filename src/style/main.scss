@@ -3,11 +3,15 @@
 @import "./user.scss";
 @import "./header.scss";
 @import "./login.scss";
+@import "./hero.scss";  
+@import "./feature.scss";
+@import "./footer.scss";
 
 
 #root {
     margin: 0;
     padding: 0;
+    max-width: none;
 }
 
 html{
