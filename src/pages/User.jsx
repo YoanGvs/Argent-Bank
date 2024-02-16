@@ -6,8 +6,8 @@ export const User = () => {
         <>
             <main className="main bg-dark">
                 <UserHeader
-                    firstname="Chloé"
-                    lastname="Neika"
+                    firstname="Yoan"
+                    lastname="Govaerts"
                 />
                 <h2 className="sr-only">Accounts</h2>
                 <UserAccount 
