@@ -8,6 +8,7 @@ import Header from './component/Header.jsx'
 import Footer from './component/Footer.jsx'
 import  Home  from './pages/Home.jsx'
 import  SignIn  from './pages/SignIn.jsx'
+import User  from './pages/User.jsx'  
 
 
 
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/user" element={<User />} />
         </Routes>
         <Footer />
       </Router>

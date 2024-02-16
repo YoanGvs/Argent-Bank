@@ -1,11 +1,12 @@
 import LoginForm from "../component/LoginForm"
 
 
-function SignIn() {
+const SignIn = () => {
     
     return (
         <>
             <main className="main bg-dark">
+
                 <LoginForm />
             </main>
         </>
