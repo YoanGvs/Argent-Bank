@@ -6,7 +6,6 @@ const SignIn = () => {
     return (
         <>
             <main className="main bg-dark">
-
                 <LoginForm />
             </main>
         </>
