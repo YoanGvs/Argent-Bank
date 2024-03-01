@@ -1,34 +1,35 @@
-import { useEffect } from "react";
-import UserAccount from "../component/userAccount";
-import UserHeader from "../component/userHeader";
-import { getUser } from "../features/authUserApi";
-import { selectCurrentToken, setUser } from "../features/authUserSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react'
+import UserAccount from '../component/UserAccount'
+import UserHeader from '../component/userHeader'
+import { getUser } from '../features/authUserApi'
+import {
+    selectCurrentToken,
+    setUser,
+    selectCurrentUser,
+} from '../features/authUserSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export const User = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const token = useSelector(selectCurrentToken)
-    
+    const CurrentUser = useSelector(selectCurrentUser)
+    const firstName = CurrentUser?.firstName
+    const lastName = CurrentUser?.lastName
 
     useEffect(() => {
         if (!token) {
-          navigate('/signin'); // Remplacez '/login' par votre route de connexion si elle est différente
+            navigate('/signin')
         } else {
-          getUser(token).then(data => dispatch(setUser(data.body)));
+            getUser(token).then((data) => dispatch(setUser(data.body)))
         }
-      }, [token, dispatch, navigate]);
+    }, [token])
 
-
-    
     return (
         <>
             <main className="main bg-dark">
-                <UserHeader
-                    firstname="Yoan"
-                    lastname="Govaerts"
-                />
+                <UserHeader firstname={firstName} lastname={lastName} />
                 <h2 className="sr-only">Accounts</h2>
                 <UserAccount
                     title="Argent Bank Checking (x8349)"
@@ -50,4 +51,4 @@ export const User = () => {
     )
 }
 
-export default User;
+export default User

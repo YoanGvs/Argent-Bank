@@ -1,30 +1,27 @@
-import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { setToken } from "../features/authUserSlice"
-import { login } from "../features/authUserApi"
-
-
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { setToken } from '../features/authUserSlice'
+import { login } from '../features/authUserApi'
 
 export const LoginForm = () => {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [text, setText] = useState("")
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [text, setText] = useState('')
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-
     const connection = (event, email, password) => {
-        event.preventDefault();
+        event.preventDefault()
         login({ email, password })
-            .then(data => {
-                dispatch(setToken(data.body.token));
-                navigate("/user");
+            .then((data) => {
+                dispatch(setToken(data.body.token))
+                navigate('/user')
             })
-            .catch(err => {
-                console.error("Erreur lors de la requête:", err.message || err);
-                setText("Erreur lors de la requête:", err.message || err);
-            });
+            .catch((err) => {
+                console.error('Erreur lors de la requête:', err.message || err)
+                setText('Erreur lors de la requête:', err.message || err)
+            })
     }
 
     return (
@@ -52,16 +49,14 @@ export const LoginForm = () => {
                 </div>
                 <p className="sign-in-error-text">{text}</p>
                 <div className="input-remember">
-                    <input
-                        type="checkbox"
-                        id="remember-me"
-                    />
+                    <input type="checkbox" id="remember-me" />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
-                <button className="sign-in-button" type="submit">Sign In</button>
+                <button className="sign-in-button" type="submit">
+                    Sign In
+                </button>
             </form>
         </section>
     )
 }
-
-export default LoginForm;
+export default LoginForm
