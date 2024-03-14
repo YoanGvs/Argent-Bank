@@ -1,19 +1,30 @@
-import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectCurrentUser, selectIsEditing, toggleIsEditing } from '../features/authUserSlice'
+import EditProfile from './EditProfile'
 
-export const UserHeader = ({ firstname, lastname }) => {
-    const navigate = useNavigate()
+
+export const UserHeader = () => {
+    const dispatch = useDispatch()
+    const user = useSelector(selectCurrentUser)
+    const isEditing = useSelector(selectIsEditing)
 
     const handleEditClick = () => {
-        navigate('/edit')
+        dispatch(toggleIsEditing())
     }
     return (
         <div className="header">
             <h1>
-                Welcome back <br /> {firstname} {lastname} !
+                Welcome back <br /> {user?.firstName} {user?.lastName} !
             </h1>
-            <button className="edit-button" onClick={handleEditClick}>
-                Edit Name
-            </button>
+            {isEditing ? (
+                <EditProfile />
+            ) : (
+                <button className="edit-button" onClick={handleEditClick}>
+                    Edit Name
+                </button>
+            )
+            }
+
         </div>
     )
 }

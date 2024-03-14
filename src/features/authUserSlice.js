@@ -5,6 +5,7 @@ export const authUserSlice = createSlice({
     initialState: {
         user: null,
         token: null,
+        isEditing: false
     },
     reducers: {
         setUser: (state, action) => {
@@ -17,15 +18,16 @@ export const authUserSlice = createSlice({
             state.user = null
             state.token = null
         },
-        setUsername: (state, action) => {
-            state.user.username = action.payload
-        },
+        toggleIsEditing: (state) => {
+            state.isEditing = !state.isEditing
+        }
     },
 })
 
-export const { setUser, setToken, logout, setUsername } = authUserSlice.actions
+export const { setUser, setToken, logout, toggleIsEditing } = authUserSlice.actions
 
 export default authUserSlice.reducer
 
 export const selectCurrentUser = (state) => state.authUser.user
 export const selectCurrentToken = (state) => state.authUser.token
+export const selectIsEditing = (state) => state.authUser.isEditing

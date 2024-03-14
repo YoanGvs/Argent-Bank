@@ -3,13 +3,14 @@
 @import "./user.scss";
 @import "./header.scss";
 @import "./login.scss";
-@import "./hero.scss";  
+@import "./hero.scss";
 @import "./feature.scss";
 @import "./footer.scss";
-@import "./loginForm.scss"; 
+@import "./loginForm.scss";
 @import "./signIn.scss";
 @import "./userAccount.scss";
 @import "./userHeader.scss";
+@import "./editProfile.scss";
 
 
 #root {
@@ -18,12 +19,12 @@
     max-width: none;
 }
 
-html{
+html {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;    
+    color: #2c3e50;
 }
 
 body {

@@ -10,7 +10,7 @@ export const login = (data) =>
         if (!response.ok) {
             return response.json().then((errorResponse) => {
                 console.error(
-                    'Erreur lors de la requÃªte1:',
+                    'Erreur lors de la requête1:',
                     errorResponse.message
                 )
                 throw errorResponse
@@ -29,22 +29,18 @@ export const getUser = (token) =>
     }).then((response) => response.json())
 
 export const updateUsername = async (token, newUsername) => {
-    const response = await fetch(URL_USER, {
+    return fetch(URL_USER, {
         method: 'PUT',
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ userName: newUsername }),
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error("Une erreur est survenue lors de la mise à jour du nom d'utilisateur.")
+        }
+
+        return response.json()
     })
-
-    if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(
-            errorData.message ||
-                "Une erreur est survenue lors de la mise à jour du nom d'utilisateur."
-        )
-    }
-
-    return await response.json()
 }
