@@ -1,9 +1,8 @@
-import Hero from "../component/Hero"; 
-import Feature from "../component/Feature";
-import chat from "../assets/img/icon-chat.png";
-import money from "../assets/img/icon-money.png";
-import security from "../assets/img/icon-security.png";   
- 
+import Hero from '../component/Hero'
+import Feature from '../component/Feature'
+import chat from '../assets/img/icon-chat.webp'
+import money from '../assets/img/icon-money.webp'
+import security from '../assets/img/icon-security.webp'
 
 export const Home = () => {
     return (
@@ -11,19 +10,19 @@ export const Home = () => {
             <Hero />
             <section className="features">
                 <h2 className="sr-only">Features</h2>
-                <Feature 
+                <Feature
                     img={chat}
                     alt="chat icon"
                     title="You are our #1 priority"
                     text="Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes"
                 />
-                <Feature 
+                <Feature
                     img={money}
                     alt="money icon"
                     title="More savings means higher rates"
                     text="The more you save with us, the higher your interest rate will be!"
                 />
-                <Feature 
+                <Feature
                     img={security}
                     alt="security icon"
                     title="Security you can trust"
@@ -34,4 +33,4 @@ export const Home = () => {
     )
 }
 
-export default Home;
+export default Home
